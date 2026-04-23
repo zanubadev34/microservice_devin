@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMUKA - Protocol Terminal</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            /* Background gelap dengan tekstur grid halus */
+            background-color: #050505;
+            background-image:
+                linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 2px, 3px 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #00f3ff;
+            overflow: hidden;
+        }
+
+        /* Container dengan efek neon & potong sudut (Cyber-cut) */
+        .container {
+            background: rgba(10, 10, 15, 0.9);
+            border: 2px solid #fcee0a;
+            padding: 40px;
+            width: 450px;
+            position: relative;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 88% 100%, 0% 100%);
+            box-shadow: 0 0 20px rgba(252, 238, 10, 0.2), inset 0 0 10px rgba(0, 243, 255, 0.1);
+        }
+
+        /* Dekorasi Sudut */
+        .container::before {
+            content: "SYSTEM_v1.0";
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            font-size: 10px;
+            color: #fcee0a;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+            color: #fcee0a;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px #ff003c;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #00f3ff;
+            margin-bottom: 30px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ff003c;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            background: #1a1a1a;
+            border: 1px solid #00f3ff;
+            border-radius: 0;
+            /* Cyberpunk kotak-kotak */
+            color: #fff;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
+            background: #252525;
+        }
+
+        /* Styling dropdown arrow */
+        select {
+            appearance: none;
+            background-image: linear-gradient(45deg, transparent 50%, #00f3ff 50%), linear-gradient(135deg, #00f3ff 50%, transparent 50%);
+            background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px);
+            background-size: 5px 5px, 5px 5px;
+            background-repeat: no-repeat;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #ff003c;
+            color: #fff;
+            border: none;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            position: relative;
+            clip-path: polygon(92% 0, 100% 25%, 100% 100%, 8% 100%, 0% 75%, 0 0);
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #fcee0a;
+            color: #000;
+            box-shadow: 0 0 20px #fcee0a;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        .message {
+            margin-top: 20px;
+            padding: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            display: none;
+            border: 1px solid;
+        }
+
+        .success {
+            background: rgba(0, 255, 0, 0.1);
+            color: #39ff14;
+            border-color: #39ff14;
+            box-shadow: 0 0 10px #39ff14;
+        }
+
+        .error {
+            background: rgba(255, 0, 60, 0.1);
+            color: #ff003c;
+            border-color: #ff003c;
+            box-shadow: 0 0 10px #ff003c;
+        }
+
+        /* Animasi Scanline */
+        @keyframes scan {
+            0% {
+                top: 0%;
+            }
+
+            100% {
+                top: 100%;
+            }
+        }
+
+        body::after {
+            content: " ";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(0, 243, 255, 0.1);
+            opacity: 0.1;
+            z-index: 10;
+            pointer-events: none;
+            animation: scan 8s linear infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>UMUKA ACCESS</h1>
+        <p class="subtitle">Initialize Registration //////</p>
+
+        <form id="registerForm">
+            <div class="form-group">
+                <label>Identify Name</label>
+                <input type="text" id="name" placeholder="FULL NAME" required>
+            </div>
+            <div class="form-group">
+                <label>Data Link (Email)</label>
+                <input type="email" id="email" placeholder="USER@CYBERMAIL.COM" required>
+            </div>
+            <div class="form-group">
+                <label>Department Sector</label>
+                <select id="prodi" required>
+                    <option value="" style="background: #1a1a1a;">SELECT SECTOR</option>
+                    <option style="background: #1a1a1a;">Teknik Informatika</option>
+                    <option style="background: #1a1a1a;">Sistem Informasi</option>
+                    <option style="background: #1a1a1a;">Teknik Komputer</option>
+                    <option style="background: #1a1a1a;">Manajemen Informatika</option>
+                    <option style="background: #1a1a1a;">Teknik Elektro</option>
+                </select>
+            </div>
+            <button type="submit">EXECUTE ENROLLMENT</button>
+        </form>
+        <div id="message" class="message"></div>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const prodi = document.getElementById('prodi').value;
+
+            const messageDiv = document.getElementById('message');
+
+            const submitBtn = document.querySelector('button');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'UPLOADING DATA...';
+
+            try {
+                // Simulasi delay biar terasa seperti hacking/proses data
+                await new Promise(resolve => setTimeout(resolve, 1000));
+
+                const response = await fetch('/api/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, prodi })
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    messageDiv.className = 'message success';
+                    messageDiv.style.display = 'block';
+                    messageDiv.innerHTML = `[SUCCESS] ${result.message}<br>ID: ${result.user.email}`;
+                    document.getElementById('registerForm').reset();
+                } else {
+                    messageDiv.className = 'message error';
+                    messageDiv.style.display = 'block';
+                    messageDiv.innerHTML = `[ERROR] ${result.error}`;
+                }
+            } catch (error) {
+                messageDiv.className = 'message error';
+                messageDiv.style.display = 'block';
+                messageDiv.innerHTML = '[FATAL ERROR] Uplink Disconnected.';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'EXECUTE ENROLLMENT';
+            }
+
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        });
+    </script>
+</body>
+
+</html>
