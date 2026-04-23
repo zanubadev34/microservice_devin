@@ -1,10 +1,5 @@
 ================================================================================
-        4 VERSI PARAGRAF DESKRIPSI PROSES PENGERJAAN UTS MICROSERVICES
-================================================================================
-
-
-================================================================================
-VERSI 1 (Gaya Naratif - Seperti Bercerita)
+VERSI 1
 ================================================================================
 
 "Dalam Pengerjaan UTS Microservices: Dari Nol Hingga Berhasil"
@@ -13,7 +8,7 @@ Perjalanan saya mengerjakan UTS Microservices dimulai dari mempersiapkan senjata
 
 
 ================================================================================
-VERSI 2 (Gaya Teknis & Terstruktur)
+VERSI 2 
 ================================================================================
 
 "Implementasi Arsitektur Message Queue pada Sistem Notifikasi UMUKA"
@@ -33,7 +28,7 @@ Tahap final mencakup front-end enhancement dengan HTML/CSS modern yang menampilk
 
 ================================================================================
 VERSI 3 (Gaya Santai & Gaul - Anak IT)
-================================================================================
+========================================================================
 
 "Gue Kasih Tau Cara Bikin Notifikasi Pakai Antrian ala ActiveMQ"
 
@@ -67,20 +62,6 @@ Tampilan depan pun saya hias dengan gradien langit senja di kota ungu. Animasi l
 Kini semua cerita ini saya abadikan dalam kode-kode yang mengalir deras ke GitHub. Saya bingkai dengan README yang jujur dan lengkap. Saya rekam dalam video tiga menit sebagai saksi bisu bahwa di balik antrian, ada keajaiban sinkronisasi yang menunggu untuk ditemukan.
 
 
-================================================================================
-                              PENUTUP
-================================================================================
-
-Keempat versi paragraf deskripsi di atas dapat digunakan sesuai kebutuhan:
-
-| Versi | Gaya Penulisan | Cocok Untuk |
-|-------|----------------|--------------|
-| Versi 1 | Naratif | Laporan resmi, deskripsi di README |
-| Versi 2 | Teknis & Terstruktur | Dokumentasi teknis, jurnal |
-| Versi 3 | Santai & Gaul | Caption media sosial, presentasi santai |
-| Versi 4 | Puitis & Reflektif | Blog pribadi, portofolio kreatif |
-
-Silakan pilih atau modifikasi sesuai dengan gaya bahasa yang diinginkan.
 
 link drive : 
 
