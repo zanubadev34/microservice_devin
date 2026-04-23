@@ -1,0 +1,14 @@
+{
+  "name": "consumer-umuka",
+  "version": "1.0.0",
+  "description": "Service 2 - Notification Worker Consumer for UMUKA",
+  "main": "worker.js",
+  "scripts": {
+    "start": "node worker.js",
+    "dev": "nodemon worker.js"
+  },
+  "dependencies": {
+    "@stomp/stompjs": "^7.3.0",
+    "ws": "^8.20.0"
+  }
+}
